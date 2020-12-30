@@ -59,6 +59,7 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include <thread>
 #include <atomic>
@@ -179,7 +180,7 @@ public:
 		WAVEOUTCAPS woc;
 		for (int n = 0; n < nDeviceCount; n++)
 			if (waveOutGetDevCaps(n, &woc, sizeof(WAVEOUTCAPS)) == S_OK)
-				sDevices.push_back(woc.szPname);
+				sDevices.push_back(std::wstring(woc.szPname));
 		return sDevices;
 	}
 
