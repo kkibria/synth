@@ -66,6 +66,9 @@
 #include <condition_variable>
 using namespace std;
 
+#ifndef UNICODE
+#define UNICODE
+#endif
 #include <Windows.h>
 
 const double PI = 2.0 * acos(0.0);
@@ -180,7 +183,7 @@ public:
 		WAVEOUTCAPS woc;
 		for (int n = 0; n < nDeviceCount; n++)
 			if (waveOutGetDevCaps(n, &woc, sizeof(WAVEOUTCAPS)) == S_OK)
-				sDevices.push_back(std::wstring(woc.szPname));
+				sDevices.push_back(woc.szPname);
 		return sDevices;
 	}
 

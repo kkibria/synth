@@ -185,7 +185,7 @@ struct sEnvelopeADSR
 
 
 // Global synthesizer variables
-atomic<double> dFrequencyOutput = 0.0;			// dominant output frequency of instrument, i.e. the note
+atomic<double> dFrequencyOutput(0.0);			// dominant output frequency of instrument, i.e. the note
 sEnvelopeADSR envelope;							// amplitude modulation of output to give texture, i.e. the timbre
 double dOctaveBaseFrequency = 110.0; // A2		// frequency of octave represented by keyboard
 double d12thRootOf2 = pow(2.0, 1.0 / 12.0);		// assuming western 12 notes per ocatve
